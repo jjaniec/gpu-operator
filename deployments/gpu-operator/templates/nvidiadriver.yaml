@@ -40,6 +40,9 @@ spec:
   {{- if .Values.daemonsets.tolerations }}
   tolerations: {{ toYaml .Values.daemonsets.tolerations | nindent 6 }}
   {{- end }}
+  {{- if .Values.daemonsets.affinity }}
+  affinity: {{ toYaml .Values.daemonsets.affinity | nindent 6 }}
+  {{- end }}
   {{- if .Values.driver.repoConfig.configMapName }}
   repoConfig:
     name: {{ .Values.driver.repoConfig.configMapName }}
